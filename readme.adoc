@@ -1,0 +1,46 @@
+:sectanchors:
+:toc: macro
+:toclevels: 2
+:toc-title: Table of Content
+:numbered:
+
+= Spring Core
+
+toc::[]
+
+== Container, Dependency, and IOC
+
+=== What is dependency injection and what are the advantages?
+Inversion of Control (IOC) and Dependency Injection (DI) are used interchangeably. 
+By DI the responsibility of creating objects is shifted from our application code to Spring container hence the phenomenon is called IOC.
+Dependency Injection can be done by setter injection, constructor injection.
+http://stackoverflow.com/questions/9403155/what-is-dependency-injection-and-inversion-of-control-in-spring-framework
+
+*Advantages of dependency injections are*: Your code is clean and more readable. Codes are loosely coupled. 
+More reusable as the implementations are configured in the XML file, it can be used in a different context. 
+Code can be easily testable with different mock implementation.
+
+=== What is meant by *application-context* and how do you create one?
+we can create IOC container in Spring in two ways, Either by creating the object of BeanFactory object or ApplicationContext object,
+BeanFactory and ApplicationContextr are the interfaces so we can notr directly create the object of BeanFactory or ApplicationContext so there are implementation classes
+For ApplicationContext some useful implementation classes are
+
+1.FileSystemXmlApplicationContext
+
+2.ClassPathXmlApplicationContext
+
+3.XmlWebApplicationContext
+
+ApplicationContext is the child interface of BeanFactory, so it contains more functionality, like property file support, event handling, Early initialization.
+
+we can create ApplicationContext obj as follows
+
+ApplicationContext ctx=new ClassPathXmlApplicationContext("classpathdirectory");
+
+The ApplicationContext provides:
+
+Bean factory methods for accessing application components.
+ - The ability to load file resources in a generic fashion.
+ - The ability to publish events to registered listeners.
+ - The ability to resolve messages to support internationalization.
+ - Inheritance from a parent context.
